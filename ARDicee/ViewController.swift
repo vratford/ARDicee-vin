@@ -19,7 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]  // debug option to display feature points
+        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]  // debug option to display feature points
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -163,6 +163,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             plane.materials = [gridMaterial]
             
             planeNode.geometry = plane
+            
+            self.sceneView.debugOptions = []    // Turns off feature points when plane is found a grid is drawn
+        
             
             node.addChildNode(planeNode)
             
